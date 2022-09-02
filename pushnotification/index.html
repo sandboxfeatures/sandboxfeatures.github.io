@@ -71,6 +71,8 @@
 <script src="https://cdn.by.wonderpush.com/sdk/1.1/wonderpush-loader.min.js" async></script>
 <script>
 
+  
+let params = new URLSearchParams(document.location.search);
 var userId = params.get('userId');
 
   
@@ -80,6 +82,12 @@ WonderPush.push(["init", {
   webKey: "6a3c1997365959cafce443995b647bae3fd60e43ab352688542d63230e028c82",
 }]);
 </script>
-    
+
+      <h1> user Id = 
+        <script>
+            document.write(userId)
+         </script>
+      </h1>
+
   </body>
 </html>
