@@ -72,22 +72,19 @@
 <script>
 
   
-let params = new URLSearchParams(document.location.search);
-var userId = params.get('userId');
+var url = window.location.href;
+var params = new URLSearchParams(document.location.search); 
 
-  
+if(params.has('userId')) {
+  var actId = params.get('userId');
+}
+
 window.WonderPush = window.WonderPush || [];
 WonderPush.push(['setUserId',userId]);
 WonderPush.push(["init", {
   webKey: "6a3c1997365959cafce443995b647bae3fd60e43ab352688542d63230e028c82",
 }]);
 </script>
-
-      <h1> user Id = 
-        <script>
-            document.write(userId)
-         </script>
-      </h1>
 
   </body>
 </html>
