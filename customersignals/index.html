@@ -134,7 +134,7 @@
     const hash = await crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(str));
     var hashUserId = Array.prototype.map.call(new Uint8Array(hash), x=>(('00'+x.toString(16)).slice(-2))).join('');
     console.log(hashUserId);
-    //raptor.push("setRuid",hashUserId);
+    raptor.push("setRuid",hashUserId);
   }
 
   if(params.has('userId')) {
