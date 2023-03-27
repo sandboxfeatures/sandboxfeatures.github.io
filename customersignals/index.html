@@ -133,9 +133,10 @@
   if(params.has('userId')) {
   var userId = params.get('userId');
   var userIdHashed= crypto.subtle.digest("SHA-256", userId);
+  raptor.push("setRuid",userIdHashed);
   }
 
-  raptor.push("setRuid",userIdHashed);
+  
   raptor.push("trackEvent", {p1:"visit", p2:"1234", p3:"ProductnameHere"});
 </script>
 
