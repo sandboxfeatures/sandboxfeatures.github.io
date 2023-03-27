@@ -137,11 +137,14 @@
     raptor.push("setRuid",hashUserId);
   }
 
-  if(params.has('userId')||params.has('emailAddressSHA256')) {
-    var userId = params.get('userId')||params.get('emailAddressSHA256');
-    digestUserId(userId);   
-    
-}
+  if(params.has('userId')) {
+    var userId = params.get('userId');
+    digestUserId(userId);    
+  }
+  else (params.has('emailAddressSHA256')) {
+    var hashUserId = params.get('emailAddressSHA256');
+    raptor.push("setRuid",hashUserId);
+  }
 
   raptor.push("trackEvent", {p1:"visit", p2:"1234", p3:"ProductnameHere"});
 </script>
