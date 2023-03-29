@@ -155,11 +155,10 @@ if(params.has('userId')) {
     
 var basketId = Date.now();
 
-function triggerAbandonedBasket() {
+function triggerAbandonedBasket(basketId) {
   console.log(basketId);
+  raptor.push("trackEvent", {p1:"basket", p10:"1,2,3", p11:basketId,});
 }
-
-raptor.push("trackEvent", {p1:"basket", p10:"1,2,3", p11:basketId,});
 
 </script>
 
