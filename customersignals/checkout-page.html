@@ -137,8 +137,7 @@
 
 var url = window.location.href;
 var params = new URLSearchParams(document.location.search); 
-var basketId = Date.now();
-console.log(basketId);
+
 
 async function digestUserId(str) {
   const hash = await crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(str));
@@ -157,7 +156,9 @@ if(params.has('userId')) {
     
 
 
-function triggerAbandonedBasket(basketId) { 
+function triggerAbandonedBasket(basketId) {
+  var basketId = Date.now();
+  console.log(basketId); 
   raptor.push("trackEvent", {p1:"basket", p10:"1,2,3", p11:basketId,});
 }
 
