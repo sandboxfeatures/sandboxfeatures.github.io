@@ -131,30 +131,32 @@
 
 <script>
 
-  //var url = window.location.href;
-  //var params = new URLSearchParams(document.location.search); 
+var url = window.location.href;
+var params = new URLSearchParams(document.location.search); 
  
-  //async function digestUserId(str) {
-    //const hash = await crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(str));
-    //var hashUserId = Array.prototype.map.call(new Uint8Array(hash), x=>(('00'+x.toString(16)).slice(-2))).join('');
-    //console.log(hashUserId);
-    //raptor.push("setRuid",hashUserId);
- // }
+async function digestUserId(str) {
+  const hash = await crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(str));
+  var hashUserId = Array.prototype.map.call(new Uint8Array(hash), x=>(('00'+x.toString(16)).slice(-2))).join('');
+  console.log(hashUserId);
+  raptor.push("setRuid",hashUserId);
+ }
 
-  //if(params.has('userId')) {
-    //var userId = params.get('userId');
-    //digestUserId(userId);   
+if(params.has('userId')) {
+  var userId = params.get('userId');
+  digestUserId(userId);
+}
+else (params.has('emailAddress')) {
+  var userId = params.get('userId');
+  raptor.push("setRuid",hashUserId);
+}  
     
-//} 
 var basketId = Date.now();
 
 function triggerAbandonedBasket() {
   console.log(basketId)
-  //raptor.push("trackEvent", {p1:"basket", p10:"1,2,3", p11:basketId,});
+  raptor.push("trackEvent", {p1:"basket", p10:"1,2,3", p11:basketId,});
 }
 
-
-//
 </script>
 
 
