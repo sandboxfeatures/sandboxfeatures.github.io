@@ -144,10 +144,9 @@ if(params.has('userId')) {
   var userId = params.get('userId');
   digestUserId(userId);
   raptor.push("setRuid",hashUserId);
-}
-else (params.has('emailAddressSHA256')) {
-  var userId = params.get('userId');
-  raptor.push("setRuid",hashUserId);
+} else if (params.has('emailAddressSHA256')) {
+  var userId = params.get('emailAddressSHA256');
+  raptor.push("setRuid",userId);
 }  
     
 var basketId = Date.now();
