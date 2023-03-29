@@ -154,9 +154,9 @@ if(params.has('userId')) {
 }  
     
 var basketId = Date.now();
+console.log(basketId);
 
-function triggerAbandonedBasket(basketId) {
-  console.log(basketId);
+function triggerAbandonedBasket(basketId) { 
   raptor.push("trackEvent", {p1:"basket", p10:"1,2,3", p11:basketId,});
 }
 
