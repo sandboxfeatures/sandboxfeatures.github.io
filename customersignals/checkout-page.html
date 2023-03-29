@@ -145,7 +145,7 @@ if(params.has('userId')) {
   digestUserId(userId);
   raptor.push("setRuid",hashUserId);
 }
-else (params.has('emailAddress')) {
+else (params.has('emailAddressSHA256')) {
   var userId = params.get('userId');
   raptor.push("setRuid",hashUserId);
 }  
@@ -153,7 +153,7 @@ else (params.has('emailAddress')) {
 var basketId = Date.now();
 
 function triggerAbandonedBasket() {
-  console.log(basketId)
+  console.log(basketId);
   raptor.push("trackEvent", {p1:"basket", p10:"1,2,3", p11:basketId,});
 }
 
