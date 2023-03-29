@@ -137,7 +137,9 @@
 
 var url = window.location.href;
 var params = new URLSearchParams(document.location.search); 
- 
+var basketId = Date.now();
+console.log(basketId);
+
 async function digestUserId(str) {
   const hash = await crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(str));
   var hashUserId = Array.prototype.map.call(new Uint8Array(hash), x=>(('00'+x.toString(16)).slice(-2))).join('');
@@ -153,8 +155,7 @@ if(params.has('userId')) {
   raptor.push("setRuid",userId);
 }  
     
-var basketId = Date.now();
-console.log(basketId);
+
 
 function triggerAbandonedBasket(basketId) { 
   raptor.push("trackEvent", {p1:"basket", p10:"1,2,3", p11:basketId,});
