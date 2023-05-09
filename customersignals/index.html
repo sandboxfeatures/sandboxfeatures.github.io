@@ -139,14 +139,13 @@
     const hash = await crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(str));
     var hashUserId = Array.prototype.map.call(new Uint8Array(hash), x=>(('00'+x.toString(16)).slice(-2))).join('');
     console.log(hashUserId);
-    raptor.push("setRuid",hashUserId);
   }
 
   if(params.has('userId')) {
   var userId = params.get('userId');
   digestUserId(userId);
   raptor.push("setRuid",userId);
-} else if (params.has('emailAddressSHA256')) {
+} else if (params.has('emailAddress')) {
   var userId = params.get('emailAddress');
   raptor.push("setRuid",userId);
 }
