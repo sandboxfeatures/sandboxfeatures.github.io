@@ -174,8 +174,8 @@
     var userId = params.get('userId');
     digestUserId(userId);
     raptor.push("setRuid",hashUserId);
-  } else if (params.has('emailAddressSHA256')) {
-    var userId = params.get('emailAddressSHA256');
+  } else if (params.has('emailAddress')) {
+    var userId = params.get('emailAddress');
     raptor.push("setRuid",userId);
   }  
       
