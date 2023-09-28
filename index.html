@@ -12,7 +12,8 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
 
-    
+    <link rel="stylesheet" href="https://cdn.notifica.re/libs/web/v3/latest/notificare-push.css" /> 
+    <link rel="stylesheet" href="https://cdn.notifica.re/libs/web/v3/latest/notificare-push-ui.css" />
 
     <!-- Bootstrap core CSS -->
 
@@ -49,6 +50,31 @@
   </head>
   <body>
     
+
+    <script type="module"> 
+      import { launch, registerDevice  } from 'https://cdn.notifica.re/libs/web/v3/latest/notificare-core.js'; 
+      import { } from 'https://cdn.notifica.re/libs/web/v3/latest/notificare-assets.js'; 
+      import { } from 'https://cdn.notifica.re/libs/web/v3/latest/notificare-push.js'; 
+      import { } from 'https://cdn.notifica.re/libs/web/v3/latest/notificare-push-ui.js'; 
+    
+      await launch();
+    
+      var url = window.location.href;
+      var params = new URLSearchParams(document.location.search); 
+      
+      if(params.has('userId')) {
+        var userId = params.get('userId');
+      }
+      
+      await registerDevice({
+        userId: userId,
+        userName: null,
+      });
+    
+     
+     
+    </script>
+
 <main>
   <div class="container py-4">
     <header class="pb-3 mb-4 border-bottom">
