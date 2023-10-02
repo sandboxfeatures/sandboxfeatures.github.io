@@ -91,6 +91,7 @@
   import 'https://cdn.notifica.re/libs/web/v3/latest/notificare-push-ui.js';
   import 'https://cdn.notifica.re/libs/web/v3/latest/notificare-inbox.js';
   importScripts ('https://cdn.notifica.re/libs/web/v3/latest/notificare-push-sw.js');
+  import { enableRemoteNotifications } from 'notificare-web/push/push.css';
 
   await launch();
 
@@ -103,10 +104,12 @@
   }
 
   // Link a userId to the device
-  registerDevice({
+  await registerDevice({
   userId: userId,
   userName: null,
 });
+
+  await enableRemoteNotifications();
 
 </script>
 
