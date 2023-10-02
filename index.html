@@ -13,9 +13,9 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
 
   <!-- Notificare core CSS -->
-  <link rel="stylesheet" href="https://cdn.notifica.re/libs/web/v3/3.0.0/notificare-in-app-messaging.css">
-  <link rel="stylesheet" href="https://cdn.notifica.re/libs/web/v3/3.0.0/notificare-push.css">
-  <link rel="stylesheet" href="https://cdn.notifica.re/libs/web/v3/3.0.0/notificare-push-ui.css">
+  <link rel="stylesheet" href="https://cdn.notifica.re/libs/web/v3/latest/notificare-in-app-messaging.css">
+  <link rel="stylesheet" href="https://cdn.notifica.re/libs/web/v3/latest/notificare-push.css">
+  <link rel="stylesheet" href="https://cdn.notifica.re/libs/web/v3/latest/notificare-push-ui.css">
 
     <!-- Bootstrap core CSS -->
 
@@ -86,12 +86,13 @@
     
 <script type="module">
   import { launch,registerDevice } from 'https://cdn.notifica.re/libs/web/v3/latest/notificare-core.js';
-  import 'https://cdn.notifica.re/libs/web/web/v3/latest/notificare-in-app-messaging.js';
-  import 'https://cdn.notifica.re/libs/web/web/v3/latest/notificare-push.js';
-  import 'https://cdn.notifica.re/libs/web/web/v3/latest/notificare-push-ui.js';
+  import 'https://cdn.notifica.re/libs/web/v3/latest/notificare-in-app-messaging.js';
+  import 'https://cdn.notifica.re/libs/web/v3/latest/notificare-push.js';
+  import 'https://cdn.notifica.re/libs/web/v3/latest/notificare-push-ui.js';
   import 'https://cdn.notifica.re/libs/web/v3/latest/notificare-inbox.js';
+  importScripts ('https://cdn.notifica.re/libs/web/v3/latest/notificare-push-sw.js');
 
-  launch();
+  await launch();
 
   // Get the userId on the path of the url
   var url = window.location.href;
