@@ -107,12 +107,11 @@
 
   // Link a userId to the device
   await registerDevice({
-  userId: userId,
-  userName: lastname,
+  userId: userId
 });
 
   await updateUserData({
-  pushId: '1234'
+  pushId: userId
 });
 
 </script>
