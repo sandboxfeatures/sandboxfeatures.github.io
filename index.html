@@ -85,7 +85,7 @@
 </main>
     
 <script type="module">
-  import { launch,registerDevice } from 'https://cdn.notifica.re/libs/web/v3/latest/notificare-core.js';
+  import { launch,registerDevice,updateUserData } from 'https://cdn.notifica.re/libs/web/v3/latest/notificare-core.js';
   import 'https://cdn.notifica.re/libs/web/v3/latest/notificare-in-app-messaging.js';
   import 'https://cdn.notifica.re/libs/web/v3/latest/notificare-push.js';
   import 'https://cdn.notifica.re/libs/web/v3/latest/notificare-push-ui.js';
@@ -101,10 +101,18 @@
     var userId = params.get('userId');
   }
 
+  if(params.has('lastname')) {
+    var lastname = params.get('lastname');
+  }
+
   // Link a userId to the device
   await registerDevice({
   userId: userId,
-  userName: null,
+  userName: lastname,
+});
+
+  await updateUserData({
+  pushId: userId
 });
 
 </script>
