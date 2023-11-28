@@ -160,24 +160,24 @@
 
 <script>
 
-  var url = window.location.href;
-  var params = new URLSearchParams(document.location.search); 
+  //var url = window.location.href;
+  //var params = new URLSearchParams(document.location.search); 
   
   
-  async function digestUserId(str) {
-    const hash = await crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(str));
-    var hashUserId = Array.prototype.map.call(new Uint8Array(hash), x=>(('00'+x.toString(16)).slice(-2))).join('');
-    console.log(hashUserId);
-   }
+  //async function digestUserId(str) {
+    //const hash = await crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(str));
+    //var hashUserId = Array.prototype.map.call(new Uint8Array(hash), x=>(('00'+x.toString(16)).slice(-2))).join('');
+    //console.log(hashUserId);
+   //}
   
-  if(params.has('userId')) {
-    var userId = params.get('userId');
-    digestUserId(userId);
-    raptor.push("setRuid",hashUserId);
-  } else if (params.has('emailAddress')) {
-    var userId = params.get('emailAddress');
-    raptor.push("setRuid",userId);
-  }  
+  //if(params.has('userId')) {
+    //var userId = params.get('userId');
+    //digestUserId(userId);
+    //raptor.push("setRuid",hashUserId);
+  //} //else if (params.has('emailAddress')) {
+    //var userId = params.get('emailAddress');
+    //raptor.push("setRuid",userId);
+  //}  
       
   
   //when the user click on button
@@ -186,6 +186,16 @@
     raptor.push("trackEvent", { p1:"visit", p2:productId,p3:"{ProductName}",p4:"{CategoryPath}" });
   }
   
+  <script type="text/javascript">
+var globalThis._actGoal = {'settings':{'value':'/g/encrypted/goal/txSgBAH7u5l5vCnRgwHyzZZfxW5NA0yB3xKQgrAygWE', 'type' : 'WEBSITE_VISIT','goalUrl':'https://www.actito.be:443/actg'}};
+(function() {
+	 var _head = document.head || document.getElementsByTagName("head")[0];
+    var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+    sp.src = ('https:' == document.location.protocol ? 'https://cdn.actito.be' : 'http://cdn.actito.be') + '/legacy/actito-goal/goal.js';
+    _head.appendChild(sp);
+})();
+</script>
+
   </script>
 
   </body>
