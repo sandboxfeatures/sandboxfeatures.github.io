@@ -142,8 +142,8 @@
 
 <script>
 
- // var url = window.location.href;
-  //var params = new URLSearchParams(document.location.search); 
+ var url = window.location.href;
+ var params = new URLSearchParams(document.location.search); 
  
   //async function digestUserId(str) {
     //const hash = await crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(str));
@@ -151,14 +151,14 @@
     //console.log(hashUserId);
   //}
 
-  //if(params.has('userId')) {
-  //var userId = params.get('userId');
-  //digestUserId(userId);
-  //raptor.push("setRuid",userId);
-//} //else if (params.has('emailAddress')) {
-  //var userId = params.get('emailAddress');
-  //raptor.push("setRuid",userId);
-//}
+  if(params.has('userId')) {
+  var userId = params.get('userId');
+  digestUserId(userId);
+  raptor.push("setRuid",userId);
+} else if (params.has('emailAddress')) {
+  var userId = params.get('emailAddress');
+  raptor.push("setRuid",userId);
+}
 
 </script>
 
