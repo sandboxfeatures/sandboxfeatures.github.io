@@ -91,8 +91,6 @@
   import { enableRemoteNotifications, disableRemoteNotifications} from 'https://cdn.notifica.re/libs/web/v3/latest/notificare-push.js';
   import 'https://cdn.notifica.re/libs/web/v3/latest/notificare-push-ui.js';
   import 'https://cdn.notifica.re/libs/web/v3/latest/notificare-inbox.js';
-  import { fetchInbox } from 'https://cdn.notifica.re/libs/web/v3/latest/notificare-web/inbox';
-  import { presentNotification } from 'https://cdn.notifica.re/libs/web/v3/latest/notificare-web/push-ui';
 
   await launch();
 
@@ -104,21 +102,20 @@
     var userId = params.get('userId');
   }
 
+  if(params.has('pushId')) {
+    var pushId = params.get('pushId');
+  }
+
   // Link a userId to the device
   await registerDevice({
   userId: userId
 });
 
+  // Add user data to the device
   await updateUserData({
-  pushId: "new value"
+  pushId: pushId
 });
 
-
-// InBox feature  
-const { items, count, unread } = await fetchInbox();
-const notification = await openInboxItem(item);
-
-presentNotification(notification);
   
 </script>
 
