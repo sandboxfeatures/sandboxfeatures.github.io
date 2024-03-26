@@ -117,7 +117,8 @@
 // InBox feature  
 const { items, count, unread } = await fetchInbox();
 const notification = await openInboxItem(item);
-presentNotification(notification);
+
+await presentNotification(notification);
   
 </script>
 
