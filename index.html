@@ -91,6 +91,8 @@
   import { enableRemoteNotifications, disableRemoteNotifications} from 'https://cdn.notifica.re/libs/web/v3/latest/notificare-push.js';
   import 'https://cdn.notifica.re/libs/web/v3/latest/notificare-push-ui.js';
   import 'https://cdn.notifica.re/libs/web/v3/latest/notificare-inbox.js';
+  import { fetchInbox } from 'notificare-web/inbox';
+  import { presentNotification } from 'notificare-web/push-ui';
 
   await launch();
 
@@ -111,6 +113,12 @@
   pushId: "new value"
 });
 
+
+// InBox feature  
+const { items, count, unread } = await fetchInbox();
+const notification = await openInboxItem(item);
+presentNotification(notification);
+  
 </script>
 
   </body>
